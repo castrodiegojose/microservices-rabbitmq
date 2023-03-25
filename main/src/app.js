@@ -46,7 +46,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 modelUtils_1.default.initialize().then(db => {
     const productRepository = db.getMongoRepository(productsEntity_1.Product);
-    amqp.connect("amqps://pqbqlbnl:xVx9Y9wOrXB2EEXfXMZU-F318t1wS5dd@jackal.rmq.cloudamqp.com/pqbqlbnl", (error0, connection) => {
+    amqp.connect(`amqps://${process.env.RABBIT_URL}`, (error0, connection) => {
         if (error0) {
             throw error0;
         }

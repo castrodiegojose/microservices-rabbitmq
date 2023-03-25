@@ -43,7 +43,7 @@ const amqp = __importStar(require("amqplib/callback_api"));
 console.log(process.env.HOST);
 modelUtils_1.default.initialize().then(db => {
     const productsRepository = db.getRepository(productEntity_1.Product);
-    amqp.connect("amqps://pqbqlbnl:xVx9Y9wOrXB2EEXfXMZU-F318t1wS5dd@jackal.rmq.cloudamqp.com/pqbqlbnl", (error0, connection) => {
+    amqp.connect(`amqps://${process.env.RABBIT_URL}`, (error0, connection) => {
         if (error0) {
             throw error0;
         }

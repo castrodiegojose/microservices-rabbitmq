@@ -7,7 +7,6 @@ const typeorm_1 = require("typeorm");
 const productsEntity_1 = require("../entity/productsEntity");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-console.log(process.env.DATABASE, process.env.HOST, process.env.PORT);
 const myDataSource = new typeorm_1.DataSource({
     type: "mongodb",
     host: process.env.HOST,
