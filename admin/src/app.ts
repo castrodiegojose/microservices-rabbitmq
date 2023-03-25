@@ -6,8 +6,6 @@ import AppDataSource from "./model/modelUtils";
 import * as amqp from 'amqplib/callback_api';
 
 
-console.log(process.env.HOST);
-
 AppDataSource.initialize().then(db=>{
     const productsRepository = db.getRepository(Product);
     amqp.connect(`amqps://${process.env.RABBIT_URL}`, (error0, connection)=>{
